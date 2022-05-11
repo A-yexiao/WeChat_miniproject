@@ -1,0 +1,59 @@
+/* pages/check_company_info/check_company_info.wxss */
+page {
+  position: relative;
+  background: #f8f8f8;
+  padding-bottom: 120rpx;
+  height: auto;
+}
+
+.wrap-button {
+  position: fixed;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  padding: 10rpx 20rpx;
+  width: 750rpx;
+  height: 108rpx;
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-now-apply {
+  width: 310rpx;
+  display: block;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  background: #51a1ff;
+  border-radius: 4rpx;
+}
+
+.btn-share {
+  background: #f30;
+  width: 310rpx;
+  height: 88rpx;
+  color: #fff;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  border-radius: 4rpx;
+}
+
+.remove_pic {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+}

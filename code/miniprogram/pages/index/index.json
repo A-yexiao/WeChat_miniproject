@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index"
+  },
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTitleText": "松鼠招聘",
+  "navigationBarTextStyle": "white",
+  "navigationStyle":"custom"
+}

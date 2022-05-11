@@ -1,0 +1,173 @@
+<!--pages/position_show/position_show.wxml-->
+<view class="r_jobdetails">
+  <view class="wrap">
+    <view class="about-position">
+      <view class="title-info">
+        <view class="job-name fl">
+          {{data.name}}
+        </view>
+        <view class="job-sal fr">
+          {{data.salary.name}}
+        </view>
+        <view class="clearfix"></view>
+      </view>
+      <view class="comp-name">
+        {{data.company.name}}
+      </view>
+      <view class="job-detail">
+        <view class="box1 fl">
+          <view class="span" class="ads">{{data.area.name}}</view>
+          <view class="span" class="exp">{{data.type.name}}</view>
+          <view class="span"> {{data.label.name}}</view>
+        </view>
+        <view class="time fr">
+          {{data.time}}
+        </view>
+      </view>
+
+    </view>
+    <view class="companyAdd boxsizing">
+      <view class="tit">工作地址</view>
+      <view class="add" bindtap="openLocation">
+        <i class="i_city"></i>{{data.location.address}}
+      </view>
+    </view>
+    <view class="boxsizing  article">
+      <view class="h3">
+        <view class="span">职位描述</view>
+      </view>
+      <view class="about-main">
+        {{data.desc}}
+      </view>
+      <view class="remindtxt">以担保或任何理由索取财物，扣押证照，均涉嫌违法，请提高警惕</view>
+    </view>
+    <view class="tag-list">
+      <view class="h3"></view>
+      <view class="span tag"></view>
+      <view class="span tag">全勤奖</view>
+      <view class="span tag">交通补助</view>
+      <view class="span tag">餐补</view>
+      <view class="span tag">通讯补助</view>
+      <view class="clearfix"></view>
+    </view>
+
+    <navigator class="company-info" hover-class="none" url="../company_show/company_show?_id={{data.company._id}}">
+      <view>
+        <view class="job-img">
+          <image wx:if="{{data.company.logo}}" mode="aspectFit" src="{{data.company.logo}}"></image>
+          <image wx:else src="../../images/company-logo.svg"></image>
+        </view>
+        <view class="jobP-info">
+          <view class="ellipsis-1">{{data.company.name}}</view>
+          <view class="muted ellipsis-1"></view>
+          <view class="muted ellipsis-1">
+            <view class="span">{{data.area.name}}</view>
+            <view class="span"></view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+<view class="j_Recomm" wx:if="{{list.length}}">
+  <view class="j h3">
+    <view class="span">相似职位</view>
+  </view>
+  <view class="recommLIst">
+    <view class="j_positiolist" wx:for="{{list}}">
+      <navigator hover-class="none" url="../position_show/position_show?_id={{item._id}}">
+        <view class="content">
+          <view class="box1 clearfix">
+            <view class="name">
+              {{item.name}}
+            </view>
+            <view class="salary">
+              {{item.salary.name}}
+            </view>
+          </view>
+          <view class="box2 clearfix">
+            <view class="company">{{item.company.name}}</view>
+          </view>
+          <view class="clearfix" style="height:32rpx">
+            <view class="ad">{{item.area.name}}</view>
+            <view class="edu">{{item.type.name}}</view>
+            <view class="time">{{item.time}}</view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<view class="wrap-button">
+  <view id="btnapply" class="btn-share" bindtap="openShare">
+    <view>
+      <image src="../../images/share.png"></image>
+    </view>
+  </view>
+  <view class="btn-now-apply"> 
+    <view id="btnapply" class="btn" bindtap="openContact">
+    联系
+  </view>
+  <view id="btnapply" class="btn" bindtap="add_record">
+    简历投递
+  </view>
+  </view>
+</view>
+
+<view wx:if="{{showContactDialog}}" class="fadeIn" bindtap="close">
+  <view class="weui-mask"></view>
+  <view class="weui-actionsheet weui-actionsheet_toggle">
+    <view class="weui-actionsheet__title">
+      <view class="weui-actionsheet__title-text">
+        Apple inc 联系方式
+      </view>
+    </view>
+    <view class="weui-actionsheet__menu">
+      <view class="weui-actionsheet__cell" bindtap="makePhoneCall" data-phone="{{data.phone}}">
+        拨打 {{data.phone}}
+      </view>
+      <view class="weui-actionsheet__cell" bindtap="setClipboardData" data-weixin="{{data.weixin}}">
+        复制微信号 {{data.weixin}}
+      </view>
+    </view>
+    <view class="weui-actionsheet__action">
+      <view class="weui-actionsheet__cell">取消</view>
+    </view>
+  </view>
+</view>
+<view wx:if="{{showShareDialog}}" class="fadeIn" bindtap="close">
+  <view class="weui-mask"></view>
+  <view class="weui-actionsheet weui-actionsheet_toggle">
+    <view class="weui-actionsheet__title">
+      <view class="weui-actionsheet__title-text">
+        分享招聘信息
+      </view>
+    </view>
+    <view class="weui-actionsheet__menu">
+      <view class="weui-actionsheet__cell">
+        <button hover-class="none" open-type="share" class="share-button">
+          分享好友或群
+        </button>
+      </view>
+      <view class="weui-actionsheet__cell" wx:if="{{!ifConllection}}">
+        <button hover-class="none" bindtap='add_conllection' class="share-button">
+          收藏
+        </button>
+      </view>
+      <view class="weui-actionsheet__cell" wx:else>
+        <button hover-class="none" bindtap='remove_conllection' class="share-button">
+          取消收藏
+        </button>
+      </view>
+    </view>
+    <view class="weui-actionsheet__action">
+      <view class="weui-actionsheet__cell">取消</view>
+    </view>
+  </view>
+</view>
+<navigator wx:if="{{user_info.is_admin}}" hover-class="none" class="edit"
+  url="../check_position/check_postion?_id={{data._id}}">
+  编辑
+</navigator>
+<van-toast id="van-toast" />

@@ -1,0 +1,19 @@
+<wxs module="m1">
+	var format = function (date) {
+		var date = getDate(date);
+		return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+	}
+	module.exports.format = format;
+</wxs>
+<view class="user-list">
+	<view class="user" wx:for="{{users}}" bindtap="copy" data-phone="{{item.phone}}">
+		<image class="avatar" src="{{item.avatarUrl}}"></image>
+		<view class="info">
+			<view class="name">{{item.nickName}}{{item.is_admin?' (管理员) ':''}}</view>
+			<view class="phone">注册时间：{{m1.format(item.created_at)}}</view>
+			<view class="phone" wx:if="{{item.is_admin}}" bindtap="cancel_admin" data-_id="{{item._id}}">取消管理员</view>
+			<view class="phone" wx:else bindtap="set_admin" data-_id="{{item._id}}" style="color:#1e3932">设为管理员</view>
+		
+		</view>
+	</view>
+</view>

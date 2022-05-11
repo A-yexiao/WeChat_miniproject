@@ -1,0 +1,98 @@
+<!--pages/authentication/authentication.wxml-->
+<view class="container">
+  <form catchsubmit="authentication">
+    <van-cell-group>
+      <view class="uploader">
+        <view class="tit">Logo(200x200):</view>
+        <view class="weui-cells weui-cells_form">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files" id="uploaderFiles">
+                    <view style="position:relative" class="weui-uploader__file" wx:if="{{info.logo}}">
+                      <image class="weui-uploader__img" src="{{info.logo}}" mode="aspectFill" />
+                      <view class="remove_pic" data-id="0" bindtap="remove_pic" catchtap>-</view>
+                    </view>
+                  </view>
+                  <view class="weui-uploader__input-box" wx:if="{{!info.logo}}">
+                    <view class="weui-uploader__input" data-id="0" bindtap="upload_pic"></view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+      <van-field value="{{ info.name }}" label="公司名称：" name='name' placeholder="公司名称" bind:change="onChangeName" error-message="{{error_message.error_name}}" />
+      <van-field label="公司电话：" value="{{ info.phone }}" name='phone' placeholder="公司电话" error-message="{{error_message.error_phone}}" />
+      <van-field value="{{ info.location.address }}" label="公司地点：" name='address' bind:click-input="chooseLocation" placeholder="公司地点" error-message="{{error_message.error_address}}" />
+      <van-field label="公司简介：" value="{{ info.desc }}" name='desc' placeholder="公司简介" error-message="{{error_message.error_desc}}" />
+      <van-field label="法人姓名：" value="{{ info.legal_name }}" name='legal_name' placeholder="法人姓名" error-message="{{error_message.error_legal_name}}" />
+      <view class="file">
+        <view class="tit">性别</view><title class="tit_s">:</title>
+        <van-radio-group name='legal_sex' direction='horizontal' value="{{ info.legal_sex }}" bind:change="changeSex">
+          <van-radio name="1">男</van-radio>
+          <van-radio name="0">女</van-radio>
+        </van-radio-group>
+      </view>
+      <van-field label="法人证件：" value="{{ info.legal_ID }}" name='legal_ID' placeholder="法人证件" error-message="{{error_message.error_legal_ID}}" />
+      <van-field label="法人电话：" value="{{ info.legal_phone}}" name='legal_phone' placeholder="法人联系方式" error-message="{{error_message.error_legal_phone}}" />
+      <view class="uploader">
+        <view class="tit">工商证明(200x200):</view>
+        <view class="upfile_list">
+          <!-- 正面 -->
+          <view class="weui-cells weui-cells_form">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">
+                <view class="weui-uploader">
+                  <view class="weui-uploader__bd">
+                    <view class="weui-uploader__files" id="uploaderFiles">
+                      <view style="position:relative" class="weui-uploader__file" wx:if="{{info.license[0]}}">
+                        <image class="weui-uploader__img" src="{{info.license[0]}}" mode="aspectFill" />
+                        <view class="remove_pic" data-id="1" bindtap="remove_pic" catchtap>-</view>
+                      </view>
+                    </view>
+                    <view class="weui-uploader__input-box" wx:if="{{!info.license[0]}}">
+                      <view data-id="1" class="weui-uploader__input" bindtap="upload_pic"></view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- 反面 -->
+          <view class="weui-cells weui-cells_form">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">
+                <view class="weui-uploader">
+                  <view class="weui-uploader__bd">
+                    <view class="weui-uploader__files" id="uploaderFiles">
+                      <view style="position:relative" class="weui-uploader__file" wx:if="{{info.license[1]}}">
+                        <image class="weui-uploader__img" src="{{info.license[1]}}" mode="aspectFill" />
+                        <view class="remove_pic" data-id="2" bindtap="remove_pic" catchtap>-</view>
+                      </view>
+                    </view>
+                    <view class="weui-uploader__input-box" wx:if="{{!info.license[1]}}">
+                      <view data-id="2" class="weui-uploader__input" bindtap="upload_pic"></view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+
+      </view>
+    </van-cell-group>
+    <van-button wx:if="{{!id}}" type="info" form-type="submit" color="#99CCFF" block>认证</van-button>
+    <view wx:else>
+      <van-button  type="info" form-type="submit" color="#99CCFF" block>修改</van-button>
+      <van-button  wx:if="{{type=='1'}}" type="info" color="#99CCFF" bind:click="remove_company" block>注销</van-button>
+    </view>
+  </form>
+</view>
+
+<van-notify id="van-notify" />

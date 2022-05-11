@@ -1,0 +1,78 @@
+<!--pages/authentication/authentication.wxml-->
+<view class="container">
+  <van-cell-group>
+    <view class="uploader">
+      <view class="tit">Logo(200x200):</view>
+      <view class="weui-cells weui-cells_form">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class="weui-uploader">
+              <view class="weui-uploader__bd">
+                <view class="weui-uploader__files" id="uploaderFiles">
+                  <view style="position:relative" class="weui-uploader__file">
+                    <image class="weui-uploader__img" src="{{info.logo}}" mode="aspectFill" />
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <van-field value="{{ info.name }}" label="公司名称：" readonly />
+    <van-field value="{{ info.phone }}" label="公司电话：" readonly />
+    <van-field value="{{ info.address }}" label="公司地点：" readonly />
+    <van-field value="{{ info.desc }}" label="公司简介：" readonly />
+    <van-field value="{{ info.legal_name }}" label="法人姓名：" readonly />
+    <van-field value="{{ info.legal_sex }}" label="法人性别：" readonly />
+    <van-field value="{{ info.legal_ID }}" label="法人证件：" readonly />
+    <van-field value="{{ info.legal_phone }}" label="法人电话：" readonly />
+    <view class="uploader">
+      <view class="tit">工商证明(200x200):</view>
+      <view class="upfile_list">
+        <!-- 正面 -->
+        <view class="weui-cells weui-cells_form">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files" id="uploaderFiles">
+                    <view style="position:relative" class="weui-uploader__file">
+                      <image class="weui-uploader__img" src="{{info.license[0]}}" mode="aspectFill" />
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 反面 -->
+        <view class="weui-cells weui-cells_form">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">
+              <view class="weui-uploader">
+                <view class="weui-uploader__bd">
+                  <view class="weui-uploader__files" id="uploaderFiles">
+                    <view style="position:relative" class="weui-uploader__file">
+                      <image class="weui-uploader__img" src="{{info.license[1]}}" mode="aspectFill" />
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </van-cell-group>
+  <view wx:if="{{!btn}}">
+    <van-button type="info" custom-style="margin:10px 0" color="#99CCFF" bind:click="onResolve" block>审核</van-button>
+    <form catchsubmit="onReject">
+      <van-button type="info" 
+      custom-style="margin:10px 0"  color="#99CCFF" form-type='submit' block>未通过</van-button>
+      <van-cell-group>
+        <van-field label="备注:" title-width="3em" name='comment' type="textarea" placeholder="请输入留言" autosize border="{{ false }}" />
+      </van-cell-group>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,34 @@
+/* pages/delivered_info/delivered_info.wxss */
+
+.file{
+  padding: 10px 16px;
+  position: relative;
+}
+.file .tit{
+  color:#323233;
+  font-size: 14px;
+  width: 58px;
+  text-align: justify;
+  text-align-last: justify;
+}
+.file .list .item{
+  color:#afafaf;
+  font-size: 12px;
+}
+.file::after{
+  position: absolute;
+  box-sizing: border-box;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  content: " ";
+  pointer-events: none;
+  right: 16px;
+  bottom: 0;
+  left: 16px;
+  border-bottom: 1px solid #ebedf0;
+  -webkit-transform: scaleY(.5);
+  transform: scaleY(.5);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(235, 237, 240);
+}

@@ -1,0 +1,16 @@
+<view class="container">
+  <view wx:if="{{companyInfo}}">
+    <van-cell-group>
+      <van-cell   title="企业审核未通过" bindtap="goCompanyInfo" title-style="color:#ff0000" value="{{companyInfo.time}}" label="{{companyInfo.comment}}" border="{{ false }}" />
+    </van-cell-group>
+  </view>
+    
+  <view wx:if="{{positionInfo}}">
+    <van-cell-group>
+      <van-cell wx:for="{{positionInfo}}" wx:key="_id" title="职位审核未通过" bindtap="goPositionInfo" title-style="color:#ff0000" value="{{item.time}}" label="{{item.comment}}" data-id="{{item._id}}" border="{{ false }}" />
+    </van-cell-group>
+  </view>
+  <view wx:if="{{!positionInfo&&!companyInfo}}">
+    暂无信息
+  </view>
+</view>

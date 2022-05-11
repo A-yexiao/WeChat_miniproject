@@ -1,0 +1,42 @@
+<!--pages/delivered_info/delivered_info.wxml-->
+<view class="cantainer">
+  <van-cell-group>
+    <van-cell title="姓名" value='{{resume_info.name}}' />
+    <van-cell title="年龄" value='{{resume_info.age}}' />
+    <van-cell title="性别" value='{{resume_info.sex?"男":"女"}}' />
+    <van-cell title="联系方式" value='{{resume_info.phone}}' />
+    <van-cell title="邮箱" value='{{resume_info.email}}' />
+    <van-cell title="籍贯" value='{{resume_info.origin}}' />
+    <van-cell title="学历" value='{{resume_info.degree}}' />
+    <van-cell title="毕业院校" value='{{resume_info.school}}' />
+    <view class="file">
+      <view class="tit">工作经验</view>
+      <view class="list" wx:if="{{resume_info.workExps.length>0}}">
+        <view class="item" wx:for="{{resume_info.workExps}}">
+          {{index+1}}、{{item}}
+        </view>
+      </view>
+      <view class="list" wx:else>
+        <view class="item">
+          无
+        </view>
+      </view>
+    </view>
+    <view class="file">
+      <view class="tit">获奖情况</view>
+      <view class="list" wx:if="{{resume_info.winnings.length!=0}}">
+        <view class="item" wx:for="{{resume_info.winnings}}">
+          {{index+1}}、{{item}}
+        </view>
+      </view>
+      <view class="list" wx:else>
+        <view class="item">
+          无
+        </view>
+      </view>
+      
+    </view>
+    <van-cell title="爱好" value='{{resume_info.hobbies?resume_info.hobbies:"无"}}' />
+  </van-cell-group>
+
+</view>

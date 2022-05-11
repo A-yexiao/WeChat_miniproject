@@ -1,0 +1,57 @@
+/* pages/my/my.wxss */
+.groupView{
+  width:315px;
+  margin-top: 100px;
+  padding:0 30px;
+}
+.inputView{
+  margin-top:15px;
+}
+.btnView{
+  margin:30rpx auto;
+}
+.textView{
+  color:#ccc;
+  font-size:12px;
+  float:right;
+}
+.container{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.header{
+  display: flex;
+  width: 100%;
+  border-bottom: 1rpx solid gray;
+}
+.header image{
+  margin: 20px;
+  width:100px;
+  height: 100px;
+  border-radius: 50%;
+  /* border: 1rpx solid black; */
+}
+.cont{
+  font-size: 20px;
+  line-height: 150px;
+}
+.content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.content navigator,.content .navigator{
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px 0 0 10px;
+  border-bottom: 1rpx solid rgb(212, 212, 212);
+}
+.btn{
+  margin-top: 200px;
+}
+/* button{
+  margin: 0 auto;
+} */

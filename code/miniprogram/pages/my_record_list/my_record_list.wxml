@@ -1,0 +1,22 @@
+<!--pages/my_record_list/my_record_list.wxml-->
+<view class="container">
+  <view class="tit" wx:if="{{recordList.length<1}}">
+    添加一份简历吧!
+  </view>
+  <van-swipe-cell wx:for="{{recordList}}" right-width="{{ leftShow?'':'65' }}" left-width="{{ leftShow?'65':'' }}">
+    <view slot="left" data-id="{{item._id}}"  bindtap="select" class="van-swipe-cell__left">选择</view>
+    <van-cell-group>
+      <van-cell data-id="{{item._id}}" bind:click="getRecordInfo" title="{{item.remarks}}" value="创建时间:{{item.time}}" />
+    </van-cell-group>
+    <view slot="right" data-id="{{item._id}}"  bindtap="remove" class="van-swipe-cell__right">删除</view>
+  </van-swipe-cell>
+ 
+</view>
+
+<view wx:if="{{leftShow}}" class="Tips">
+  右滑选择
+</view>
+
+<view class="add">
+    <van-icon bind:click="add" color="#ffffff" size="40px" name="plus" />
+</view>

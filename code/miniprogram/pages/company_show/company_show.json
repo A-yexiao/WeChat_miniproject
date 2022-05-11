@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+  },
+  "navigationBarBackgroundColor": "#6699CC",
+  "navigationBarTitleText": "公司详情",
+  "navigationBarTextStyle": "white"
+}

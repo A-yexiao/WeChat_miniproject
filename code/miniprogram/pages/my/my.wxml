@@ -1,0 +1,75 @@
+<!--pages/my/my.wxml-->
+<!-- 登录页面 -->
+<view class="container" wx:if="{{!user}}">
+  <image src="../../images/swiper.png" style="width:100%"></image>
+  <view class="groupView" wx:if="{{existence}}">
+    <van-button class="btn" bindtap="login" block type="info" size="large">一键登录</van-button>
+  </view>
+  <view class="groupView" wx:else>
+    <van-button class="btn" bindtap="auth" block type="info" size="large">一键注册</van-button>
+  </view>
+</view>
+<!-- 个人中心页面 -->
+
+
+<!-- 用户 -->
+<view wx:else>
+  <view class="container">
+    <!-- 头部 -->
+    <view class="header">
+      <!-- 头像 -->
+      <image src="{{user.avatarUrl}}" bindtap="prv"></image>
+      <text class="cont">{{user.nickName}}</text>
+    </view>
+
+    <!-- 内容 -->
+    <!-- 管理员 -->
+    <view class="content" wx:if="{{user.is_admin}}">
+      <navigator hover-class="none" url="../admin/index/index">
+        后台管理
+      </navigator>
+    </view>
+    <!-- 公司 -->
+    <view class="content" wx:elif="{{user.is_company}}">
+      <navigator url="../company/authentication/authentication?id={{user._openid}}">企业信息</navigator>
+      <navigator  url="../company/company_position_admin/company_position_admin?id={{user._openid}}">职位管理</navigator>
+      <navigator  url="../company/deliveredList/deliveredList?id={{user._openid}}">投递情况</navigator>
+      <navigator url="../notice/notice?id={{user._id}}">消息通知</navigator>
+     </view>
+    
+    <!-- 用户 -->
+    <view class="content" wx:else>
+      <navigator url="../my_record_list/my_record_list?id={{user._openid}}">个人简历</navigator>
+      <navigator url="../my_DeliveryRecord/my_DeliveryRecord?id={{user._id}}">投递记录</navigator>
+      <navigator url="../my_collection/my_conllection?id={{user._id}}">我的收藏</navigator>
+      <text class='navigator' bindtap="go_authentication">企业认证</text>
+      <navigator url="../notice/notice?id={{user._id}}">消息通知</navigator>
+    </view>
+   
+    <!-- <view class="groupView">
+      <van-button class="btn" bindtap="loginOut" block type="info" size="large">退出登录</van-button>
+     </view> -->
+
+     <!-- <view class="content">
+      <navigator url="../my_record_list/my_record_list?id={{user._openid}}">个人简历</navigator>
+      <navigator url="../my_DeliveryRecord/my_DeliveryRecord?id={{user._id}}">投递记录</navigator>
+      <navigator url="../my_collection/my_conllection?id={{user._id}}">我的收藏</navigator>
+      <navigator wx:if="{{user.is_admin}}" hover-class="none" url="../admin/index/index">
+        后台管理
+      </navigator>
+     <view wx:if="{{user.is_company}}">
+      <navigator url="../company/authentication/authentication?id={{user._openid}}">企业信息</navigator> 
+      <navigator url="../notice/notice?id={{user._id}}&{{user.is_admin}}">消息通知</navigator>
+      <navigator  url="../company/company_position_admin/company_position_admin?id={{user._openid}}">职位管理</navigator>
+      <navigator  url="../company/deliveredList/deliveredList?id={{user._openid}}">投递情况</navigator>
+     </view>
+      <text class='navigator' wx:else bindtap="go_authentication">企业认证</text>
+      <navigator url="../notice/notice?id={{user._id}}&{{user.is_admin}}">消息通知</navigator>
+     </view>  -->
+  </view>
+
+
+</view>
+
+
+<van-notify id="van-notify" />

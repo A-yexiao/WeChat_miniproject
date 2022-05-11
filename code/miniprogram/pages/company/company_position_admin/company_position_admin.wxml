@@ -1,0 +1,87 @@
+<!--pages/company/company_position_admin/company_position_admin.wxml-->
+<view class="container">
+  <van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:search="onSearch" bind:cancel="onCancel" />
+  <!-- <view class="tab"> -->
+    <van-tabs active="{{ active }}" bind:change="onChange">
+      <van-tab title="待审核">
+        <van-swipe-cell class="" wx:for="{{position_list}}" right-width="{{ 65 }}" wx:key="index">
+          <view class="job-list">
+            <navigator hover-class="none" url="../../check_position/check_postion?_id={{item._id}}&type=0" class="boxsizing">
+              <view class="jobP-info">
+                <view class="title-info">
+                  <view class="job-name fl">
+                    {{item.name}}
+                  </view>
+                  <view class="job-sal fr">
+                    <view class="fl">
+                      {{item.salary.name}}
+                    </view>
+                  </view>
+                </view>
+                <view class="boxitem clearfix">
+                  <view class="box1 fl">
+                    <span class="ads"> {{item.company.name}}</span>
+                  </view>
+
+                  <view class="rightbox fr"></view>
+                </view>
+                <view class="job-detail clearfix">
+                  <img src="" width="20" height="20" class="MenVipUrl fl" style="display: none;" />
+                  <view class="comp-name fl">
+                    {{item.area.name}} {{item.type.name}} {{item.label.name}}
+                  </view>
+                  <view class="time fr">
+                    {{item.time}}
+                  </view>
+                </view>
+              </view>
+            </navigator>
+          </view>
+          <view slot="right" bind:tap="remove_position" data-id="{{item._id}}" data-removetype="0" class="van-swipe-cell__right">删除</view>
+        </van-swipe-cell>
+      </van-tab>
+      <van-tab title="已审核">
+        <van-swipe-cell class="" wx:for="{{position_list}}" right-width="{{ 65 }}" wx:key="index">
+          <view class="job-list">
+            <navigator hover-class="none" url="../../check_position/check_postion?_id={{item._id}}&&type=1" class="boxsizing">
+              <view class="jobP-info">
+                <view class="title-info">
+                  <view class="job-name fl">
+                    {{item.name}}
+                  </view>
+                  <view class="job-sal fr">
+                    <view class="fl">
+                      {{item.salary.name}}
+                    </view>
+                  </view>
+                </view>
+                <view class="boxitem clearfix">
+                  <view class="box1 fl">
+                    <span class="ads"> {{item.company.name}}</span>
+                  </view>
+
+                  <view class="rightbox fr"></view>
+                </view>
+                <view class="job-detail clearfix">
+                  <img src="" width="20" height="20" class="MenVipUrl fl" style="display: none;" />
+                  <view class="comp-name fl">
+                    {{item.area.name}} {{item.type.name}} {{item.label.name}}
+                  </view>
+                  <view class="time fr">
+                    {{item.time}}
+                  </view>
+                </view>
+              </view>
+            </navigator>
+          </view>
+          <view slot="right" bind:tap="remove_position" data-id="{{item._id}}" data-removetype="1"  class="van-swipe-cell__right">删除</view>
+        </van-swipe-cell>
+      </van-tab>
+    </van-tabs>
+  <!-- </view> -->
+
+  <view class="add">
+    <van-icon bind:click="goPositionInfo" color="#ffffff" size="40px" name="plus" />
+  </view>
+
+</view>

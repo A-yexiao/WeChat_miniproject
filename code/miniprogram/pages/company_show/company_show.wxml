@@ -1,0 +1,50 @@
+<!--pages/company_show/company_show.wxml-->
+<view id="r_content">
+  <view class="r_companydetail">
+    <view class="companyInfo">
+      <view class="companyLogo">
+        <image src="{{one.logo}}" mode="aspectFit" class="logo-icon"></image>
+      </view>
+      <view class="info-content">
+        <view class="name">{{one.name}}</view>
+      </view>
+    </view>
+    <view class="company-box boxsizing">
+      <view class="tit">公司描述</view>
+      <view class="about-main">
+        <view>
+          {{one.desc}}
+        </view>
+      </view>
+    </view>
+    <view class="j_Recomm" style="margin-top:20px" wx:if="{{list.length}}">
+      <view style="margin-left:10px;height:88rpx;line-height:88rpx">
+        <view>公司职位</view>
+      </view>
+      <view class="recommLIst">
+        <view class="j_positiolist" wx:for="{{list}}">
+          <navigator hover-class="none" url="../position_show/position_show?_id={{item._id}}">
+            <view class="content">
+              <view class="box1 clearfix">
+                <view class="name">{{item.name}}</view>
+                <view class="salary">{{item.salary.name}}</view>
+              </view>
+              <view class="box2 clearfix">
+                <view class="company">{{item.company.name}}</view>
+              </view>
+              <view class="clearfix" style="height: 16px;">
+                <view class="ad">{{item.area.name}}</view>
+                <view class="time">{{item.time}}</view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- <navigator wx:if="{{user_info.is_admin}}" hover-class="none" class="edit"
+  url="../check_company_info/check_company_info?_id={{one._id}}">
+  编辑
+</navigator> -->

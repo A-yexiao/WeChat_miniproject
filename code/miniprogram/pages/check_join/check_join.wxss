@@ -1,0 +1,19 @@
+/* pages/check_join/check_join.wxss */
+page {
+  background: #f7f7f7;
+}
+
+.remove_pic {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+}

@@ -1,0 +1,65 @@
+<!--pages/check_company_info/check_company_info.wxml-->
+<view class="weui-form__control-area" style="margin-top:20px">
+  <view class="weui-cells__group weui-cells__group_form">
+    <view class="weui-cells__title">公司logo（正方形200x200）</view>
+    <view class="weui-cells weui-cells_form">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <view style="position:relative" class="weui-uploader__file" wx:if="{{one.logo}}">
+                  <image class="weui-uploader__img" src="{{one.logo}}" mode="aspectFill" />
+                  <view class="remove_pic" bindtap="remove_pic" catchtap>-</view>
+                </view>
+              </view>
+              <view class="weui-uploader__input-box" wx:if="{{!one.logo}}">
+                <view class="weui-uploader__input" bindtap="upload_pic"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__group weui-cells__group_form">
+    <view class="weui-cells__title">基本信息</view>
+    <view class="weui-cells weui-cells_form">
+      <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+          <label class="weui-label">公司名称</label>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" value="{{one.name}}" bindinput="set_add_name" placeholder="填写公司名称"
+            placeholder-class="weui-input__placeholder" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__group weui-cells__group_form">
+    <view class="weui-cells__title">公司描述</view>
+    <view class="weui-cells weui-cells_form">
+      <view class="weui-cell ">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" value="{{one.desc}}" bindinput="set_add_desc" placeholder="请填写公司描述"
+            rows="3"></textarea>
+          <view class="weui-textarea-counter">
+            <text>{{one.desc.length||0}}</text>/1000</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="wrap-button">
+  <view id="btnapply" class="btn-share" bindtap="remove" data-_id="{{one._id}}" wx:if="{{one._id}}">
+    删除
+  </view>
+  <view id="btnapply" class="btn-now-apply" bindtap="save" wx:if="{{one._id}}">
+    保存
+  </view>
+  <view id="btnapply" style="width:690rpx" class="btn-now-apply" bindtap="add" wx:else>
+    新增
+  </view>
+</view>

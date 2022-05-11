@@ -1,0 +1,281 @@
+page {
+  font-size: 26rpx;
+  color: #333;
+  background: #f7f7f7;
+  padding-bottom: 30rpx;
+}
+
+.line {
+  position: relative;
+  z-index: 1000;
+  background-color: #fff;
+  padding-top: 20rpx;
+  margin-top: -20rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+
+.header {
+  position: relative;
+}
+
+.banner {
+  position: relative;
+  z-index: 999;
+  width: 750rpx;
+  height: 320rpx;
+  margin: 0 auto;
+  background: #000;
+}
+
+.banner .swiper-item {
+  width: 750rpx;
+  height: 320rpx;
+  margin: 0 auto;
+  display: block;
+}
+
+.banner .navigator {
+  width: 750rpx;
+  height: 320rpx;
+  margin: 0 auto;
+  display: block;
+}
+
+.banner .image {
+  display: block;
+  width: 750rpx;
+  height: 320rpx;
+  margin: 0 auto;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.filter-box {
+  box-sizing: border-box;
+  position: relative;
+  z-index: 20;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #ededed;
+  background: #fff;
+}
+
+.filter-box .filter {
+  height: 80rpx;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #666;
+  position: relative;
+}
+
+.filter-box .filter>image {
+  position: absolute;
+  top: 25rpx;
+  right: 25rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.filter-box .filter.active {
+  color: #1a8afb;
+}
+
+.filter-box .filter.active image {
+  fill: #1a8afb;
+}
+
+.filter-item-box {
+  box-sizing: border-box;
+  position: absolute;
+  width: 750rpx;
+  top: 80rpx;
+  z-index: 12;
+  transition: transform 0.3s ease;
+  padding: 30rpx;
+  background: #fff;
+}
+
+.filter-item-box .filter-item-box-title {
+  color: #999;
+  margin-bottom: 15rpx;
+}
+
+.filter-item-box .section {
+  overflow: hidden;
+}
+
+.filter-item-box .filter-item {
+  font-size: 24rpx;
+  width: 210rpx;
+  height: 64rpx;
+  color: #666;
+  border: 1rpx solid #666;
+  border-radius: 4rpx;
+  margin-right: 24rpx;
+  margin-bottom: 24rpx;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-item-box .filter-item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.filter-item-box .filter-item.active {
+  color: #1a8afb;
+  border: 1rpx solid #1a8afb;
+}
+
+.cover {
+  width: 750rpx;
+  z-index: 11;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#r_content {
+  overflow: hidden;
+  width: 100%;
+}
+
+.r_shadow {
+  margin: 0 auto 16rpx;
+  padding: 0;
+}
+
+.r_shadow .r_searchlist {
+  width: 100%;
+}
+
+.job-list {
+  position: relative;
+  margin-top: 16rpx;
+  display: -webkit-box;
+  min-height: 192rpx;
+  margin-bottom: 16rpx;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 8rpx;
+}
+
+
+
+.job-list .job-name.c {
+  color: #888;
+}
+
+
+
+.job-list navigator {
+  box-sizing: border-box;
+  display: block;
+  padding: 24rpx 20rpx 24rpx 180rpx;
+  width: 710rpx;
+  height: 100%;
+  text-decoration: none;
+}
+
+.job-list .job-img {
+  box-sizing: border-box;
+  position: absolute;
+  top: 32rpx;
+  left: 20rpx;
+  width: 102rpx;
+  height: 102rpx;
+  border: 1px solid #eaeaea;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.job-list .job-img .companyLogo {
+  box-sizing: border-box;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.job-list .job-img .companyLogo image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.job-list .job-img .MenVipUrl {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+
+.job-list .title-info {
+  zoom: 1;
+  margin-bottom: 10rpx;
+  width: 100%;
+  height: 44rpx;
+}
+
+.job-list .job-name {
+  width: 56%;
+  font-size: 32rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.job-list .job-sal {
+  max-width: 100%;
+  font-size: 32rpx;
+  color: #f30;
+  text-align: right;
+}
+
+.job-list .comp-name {
+  zoom: 1;
+  margin-bottom: 10rpx;
+  max-width: 78%;
+  font-size: 28rpx;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.job-list .job-detail {
+  zoom: 1;
+  width: 100%;
+  height: 44rpx;
+}
+
+.job-list .box1 {
+  font-size: 28rpx;
+  color: #888;
+}
+
+.job-list .time {
+  font-size: 24rpx;
+  color: #ccc;
+  text-align: right;
+}

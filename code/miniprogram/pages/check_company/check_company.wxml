@@ -1,0 +1,29 @@
+<!--pages/check_company/check_company.wxml-->
+<view class="weui-btn weui-btn_primary" bindtap="add" style="background:#1a8afb;margin:20px auto;">
+  添加公司
+</view>
+
+<view class="weui-cells weui-cells_after-title">
+  <view url="" class="weui-cell" hover-class="none" wx:for='{{list}}' bindtap="active" data-_id="{{item._id}}" wx:key="index">
+    <view class="weui-cell__hd" wx:if="{{select}}">
+      <icon type="{{item.active?'success':'circle'}}" style="margin-right:20px" color="#1a8afb"></icon>
+    </view>
+    <view class="weui-cell__bd">
+      <input disabled value="{{item.name}}" data-_id="{{item._id}}"></input>
+    </view>
+    <view wx:if="{{!select}}" class="weui-cell__ft weui-cell__ft_in-access" catchtap bindtap="remove"
+      data-_id="{{item._id}}">
+      <view style="">
+        删除
+      </view>
+    </view>
+  </view>
+</view>
+<view style="height:120rpx"></view>
+
+<view wx:if="{{select}}" bindtap="back"
+  style="width:750rpx;height:100rpx;position:fixed;bottom:0px;left:0;z-index:100;background:#fff;display:flex;justify-content:center;align-items:center;border-top:1rpx solid #f5f5f5;">
+  <view class="weui-btn weui-btn_primary" style="font-size:14px;background:#1a8afb">
+    选好了 返回
+  </view>
+</view>

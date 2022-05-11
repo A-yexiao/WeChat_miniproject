@@ -1,0 +1,51 @@
+<!--pages/check_company_info/check_company_info.wxml-->
+<view class="weui-form__control-area" style="margin-top:20px">
+  <view class="weui-cells__group weui-cells__group_form">
+    <view class="weui-cells__title">公司宣传海报（宽度750）</view>
+    <view class="weui-cells weui-cells_form">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-uploader">
+            <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles">
+                <view style="position:relative" class="weui-uploader__file" wx:if="{{one.poster}}">
+                  <image class="weui-uploader__img" src="{{one.poster}}" mode="aspectFill" />
+                  <view class="remove_pic" bindtap="remove_pic" catchtap>-</view>
+                </view>
+              </view>
+              <view class="weui-uploader__input-box" wx:if="{{!one.poster}}">
+                <view class="weui-uploader__input" bindtap="upload_pic"></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__group weui-cells__group_form">
+    <view class="weui-cells__title">基本信息</view>
+    <view class="weui-cells weui-cells_form">
+      <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+          <label class="weui-label">联系电话</label>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="number" value="{{one.phone}}" bindinput="set_phone" placeholder="填写联系电话"
+            placeholder-class="weui-input__placeholder" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+          <label class="weui-label">联系微信</label>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" value="{{one.weixin}}" bindinput="set_weixin" placeholder="填写联系微信"
+            placeholder-class="weui-input__placeholder" />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="weui-btn weui-btn_primary" bindtap="save" style="background:#000;margin:0 auto;">
+  确定
+</view>

@@ -1,0 +1,102 @@
+/* pages/edit_personal/edit_personal.wxss */
+.container {
+  height: 100%;
+  margin-top: 20px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+}
+
+.head text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #454553;
+}
+
+.field{
+  display:flex;
+}
+.field van-dropdown-menu{
+  flex:1;
+  height: 40px;
+  
+}
+.field .van-dropdown-menu{
+  box-shadow: none;
+}
+.field .tit{
+  margin-left: 16px;
+  width: 40px;
+  line-height: 44px;
+  color: #646566;
+  font-size: 14px;
+}
+.field .van-radio{
+  margin: 11px 5px;
+}
+
+.field radio-group{
+  line-height: 40px;
+  font-size: 14px;
+} 
+.field radio-group radio{
+  margin: 0px 5px;
+}
+.Add_winning{
+  width: 60%;
+  height:50px;
+  /* background: #646566;
+  opacity: 0.1; */
+  margin: 0 auto;
+  border: 1px #454553 dotted  ;
+  position: relative;
+  /* border:; */
+}
+.Add_winning .round{
+  width: 40px;
+  height: 40px;
+  border: 1px dotted #454545;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.Add_winning .add{
+  font-size:16px;
+  text-align: center;
+  color: #646566;
+  background-color: #fff;
+  border:none;
+  box-sizing:none;
+  z-index:-1;
+  border-radius: none;
+}
+.btn{
+  margin:15px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-evenly;
+  height: 100px;
+  width: 90%;
+}
+.btn button{
+  margin: 5px 20px;
+}
+
+
+.field .tit_s{
+  margin-left: 16px;
+  width: 80px;
+  line-height: 44px;
+  color: #646566;
+  font-size: 14px;
+}
+.van-field__body textarea{
+  width: 100%;
+  height: 200rpx !important;
+  border: 1rpx solid #cfcfcf;
+}

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index",
+  "van-cell-group": "@vant/weapp/cell-group/index"
+  },
+  "navigationBarTitleText": "简历预览",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#6699CC"
+}

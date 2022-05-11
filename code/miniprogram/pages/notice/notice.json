@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-cell": "@vant/weapp/cell/index",
+  "van-cell-group": "@vant/weapp/cell-group/index"
+  },
+  "navigationBarBackgroundColor": "#6699CC",
+  "navigationBarTitleText": "消息通知",
+  "navigationBarTextStyle": "white"
+}

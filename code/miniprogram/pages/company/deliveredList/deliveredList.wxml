@@ -1,0 +1,34 @@
+<!--pages/company/deliveredList/deliveredList.wxml-->
+<view id="r_content">
+  <view class="r_shadow" wx:if="{{errorMssage}}">
+    <text>{{errorMssage}}</text>
+  </view>
+  <view class="r_shadow" wx:else>
+    <view class="r_searchlist positiolist">
+      <view class="job-list" wx:for="{{list}}">
+        <navigator hover-class="none" url="../../delivered_info/delivered_info?id={{item.resume._id}}" class="boxsizing">
+          <view class="jobP-info">
+            <view class="title-info">
+              <view class="job-name fl">
+                {{item.name}}
+              </view>
+              <view class="job-sal fr">
+                <view class="fl">
+                  最新投递
+                </view>
+              </view>
+            </view>
+            <view class="job-detail clearfix">
+              <view class="comp-name fl">
+                投递人：{{item.resume.name}} {{item.resume.school}}
+              </view>
+              <view class="time fr">
+                {{item.time}}
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

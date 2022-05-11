@@ -1,0 +1,126 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/admin/admin",
+          "pathName": "pages/admin/admin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/position_show/position_show",
+          "pathName": "pages/position_show/position_show",
+          "query": "_id=cbddf0af60c9fee810bba04f3a62c52f",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my_DeliveryRecord/my_DeliveryRecord",
+          "query": "id=b00064a760d7249b22e797e1767a7715",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/edit_personal/edit_personal",
+          "query": "id=o5aVL46SkM8sygCyWJlM5jbFCtMk",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/authentication/authentication",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/admin/admin_company/admin_company",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/authentication_info/authentication_info",
+          "query": "id=54ad1eea61ceaa7a01f92c1f2fdd3bd4&active=0",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/company/company_position_admin/company_position_admin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/position_show/position_show",
+          "query": "_id=79550af260c9ed811fe206a87148377c",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "公司去添加职位",
+          "pathName": "pages/check_position/check_postion",
+          "query": "id=o5aVL46SkM8sygCyWJlM5jbFCtMk",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/admin/admin_position/admin_position",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/my_record_list/my_record_list",
+          "query": "id=o5aVL46SkM8sygCyWJlM5jbFCtMk",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/delivered_info/delivered_info",
+          "query": "id=5b049cc861dd42e8047acc940a4cc8e2",
+          "scene": null
+        },
+        {
+          "name": "消息",
+          "pathName": "pages/notice/notice",
+          "query": "id=b00064a760d7249b22e797e1767a7715&true=undefined",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/company/company_login/company_login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/admin/admin_company/admin_company",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

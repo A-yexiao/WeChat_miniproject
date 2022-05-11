@@ -1,0 +1,12 @@
+/* pages/admin/admin_company/admin_company.wxss */
+.label_class{
+  max-height: 35px;
+  overflow: hidden;
+}
+.van-swipe-cell__right{
+  background-color: #ff0000;
+  color:#ffffff;
+  width: 65px;
+  text-align: center;
+  line-height: 80px;
+}

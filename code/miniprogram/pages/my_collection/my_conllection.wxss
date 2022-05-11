@@ -1,0 +1,147 @@
+page {
+  font-size: 26rpx;
+  color: #333;
+  background: #f7f7f7;
+  padding-bottom: 30rpx;
+}
+
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.clearfix {
+  clear: both;
+}
+
+
+#r_content {
+  overflow: hidden;
+  width: 100%;
+}
+
+.r_shadow {
+  margin: 0 auto 16rpx;
+  padding: 0;
+}
+
+.r_shadow .r_searchlist {
+  width: 100%;
+}
+
+.job-list {
+  position: relative;
+  margin-top: 16rpx;
+  display: -webkit-box;
+  min-height: 192rpx;
+  margin-bottom: 16rpx;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 8rpx;
+}
+
+
+
+.job-list .job-name.c {
+  color: #888;
+}
+
+
+
+.job-list navigator {
+  box-sizing: border-box;
+  display: block;
+  padding: 24rpx 20rpx 24rpx 180rpx;
+  width: 710rpx;
+  height: 100%;
+  text-decoration: none;
+}
+
+.job-list .job-img {
+  box-sizing: border-box;
+  position: absolute;
+  top: 32rpx;
+  left: 20rpx;
+  width: 102rpx;
+  height: 102rpx;
+  border: 1px solid #eaeaea;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.job-list .job-img .companyLogo {
+  box-sizing: border-box;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.job-list .job-img .companyLogo image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.job-list .job-img .MenVipUrl {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+
+.job-list .title-info {
+  zoom: 1;
+  margin-bottom: 10rpx;
+  width: 100%;
+  height: 44rpx;
+}
+
+.job-list .job-name {
+  width: 56%;
+  font-size: 32rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.job-list .job-sal {
+  max-width: 100%;
+  font-size: 32rpx;
+  color: #f30;
+  text-align: right;
+}
+
+.job-list .comp-name {
+  zoom: 1;
+  margin-bottom: 10rpx;
+  max-width: 78%;
+  font-size: 28rpx;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.job-list .job-detail {
+  zoom: 1;
+  width: 100%;
+  height: 44rpx;
+}
+
+.job-list .box1 {
+  font-size: 28rpx;
+  color: #888;
+}
+
+.job-list .time {
+  font-size: 24rpx;
+  color: #ccc;
+  text-align: right;
+}

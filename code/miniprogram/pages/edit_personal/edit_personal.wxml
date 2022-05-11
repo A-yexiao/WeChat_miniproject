@@ -1,0 +1,146 @@
+<!--pages/edit_personal/edit_personal.wxml-->
+<view class="container">
+  <view class="head">
+    <!-- <text>简历</text> -->
+    <van-steps active-color="#66CCFF" steps="{{ steps }}" active="{{active}}" />
+  </view>
+  <view class="personal">
+    <!-- 第一步 -->
+    <form catchsubmit="form_one">
+      <view class="info" wx:if="{{active  == 0}}">
+        <van-field custom-style="color:red" name="remarks" value="{{ personal.remarks }}" required title-width="4em"
+          clearable label="简历备注" placeholder="请输入简历备注" error-message="{{error_message.error_remarks}}" />
+        <van-field custom-style="color:red" name="name" value="{{ personal.name }}" required title-width="2em"
+          clearable label="姓名" placeholder="请输入姓名" error-message="{{error_message.error_name}}" />
+        <view class="field">
+          <view class="tit">性别</view>
+          <radio-group name="sex">
+            <radio color="#99CCFF" value="1" checked>男</radio>
+            <radio color="#99CCFF" value="0">女</radio>
+          </radio-group>
+        </view>
+        <van-field value="{{ personal.age }}" required type="number" maxlength='2' title-width="2em" name="age"
+          clearable label="年龄" placeholder="请输入年龄" error-message="{{error_message.error_age}}" />
+        <van-field value="{{ personal.phone }}" type="number" name="phone"
+          error-message="{{error_message.error_phone}}" required title-width="4em" clearable label="联系方式"
+          placeholder="例:187****123" />
+
+        <van-field id='1' value="{{ personal.origin }}" title-width="2em" clearable label="籍贯" bind:focus="ChangeShow"
+          placeholder="请选择" />
+        <van-popup show="{{ show }}" round="true" position="bottom" custom-style="height: 40%;" bind:close="onClose">
+          <van-area bind:confirm="changeArea" bind:cancel="cancelArea" area-list="{{ areaList }}" value="110101" />
+        </van-popup>
+
+
+        <van-field name="email" value="{{ personal.email }}" title-width="2em" required clearable label="邮箱"
+          placeholder="请填写" error-message="{{error_message.error_email}}" />
+        <van-field value="{{ personal.introduction }}" type="textarea" name="self_intro" title-width="4em" autosize
+          clearable label="自我介绍" placeholder="介绍说明" />
+        <view class="btn">
+          <van-button form-type="submit" round block color="#66CCFF">下一步</van-button>
+        </view>
+      </view>
+    </form>
+    <!-- 第二步 -->
+    <form catchsubmit="form_two">
+      <view class="info" wx:if="{{active  == 1}}">
+          <van-field id='2' value="{{  personal.degree }}" clearable label="最高学历"   title-width="4em" error-message="{{error_message.error_degree}}" bind:focus="ChangeShow"
+          placeholder="请输入选择" />
+          <van-popup show="{{ show }}" round="true" position="bottom" custom-style="height: 50%;" bind:close="onClose">
+            <van-picker   show-toolbar columns="{{ personal_degreeType}}" bind:cancel='cancel_degree' bind:confirm="select_degree" />
+          </van-popup>
+
+
+
+        <!-- <picker mode="multiSelector" range="{{zone}}"  bindcolumnchange="changeCity" bindchange="school_event" > -->
+          <van-field id='2'  title-width="4em" error-message="{{error_message.error_school}}" value="{{ personal.school }}" clearable bind:change="school_event" label="毕业学校" 
+          placeholder="请选择学校" />
+        <!-- </picker> -->
+
+
+
+
+          <view class="field">
+          <!-- <view class="tit tit_s">入学时间</view> -->
+          <picker mode="date"  bindchange="entrance_event" start="1900-01-01" end="2099-12-31">
+            <van-field  title-width="4em" error-message="{{error_message.error_time1}}" label="入学时间" value="{{ personal.entrance_time }}" clearable 
+          placeholder="请选择日期" /> 
+          </picker>
+        </view>
+
+        <view class="field">
+          <!-- <view class="tit tit_s">毕业时间</view> -->
+          <picker mode="date" bindchange="graduation_event" start="1900-01-01" end="2099-12-31">
+            <van-field   title-width="4em" error-message="{{error_message.error_time2}}" label="毕业时间"  value="{{ personal.graduation_time }}" clearable 
+          placeholder="请选择日期" /> 
+          </picker>
+        </view>
+
+        <van-field value="{{ personal.hobbies }}" name="hobbies" title-width="4em" clearable label="个人爱好"
+          placeholder="请填写（或'无'）" />
+
+       <form catchsubmit="form_winnings" >
+        <van-field  value="{{ personal.winnings[index] }}" name="winnings{{index}}" wx:for="{{personal.winnings}}" wx:for-index="index"
+          title-width="6em" wx:for-item="item" wx:key="index" clearable label="荣获奖项({{index+1}})" placeholder="xx年xx单位(组织)xx奖" />
+        <label  wx:if="{{personal.winnings.length < 5}}">
+          <view class="Add_winning">
+            <view class="round">
+              <button form-type="submit" class="add">+</button>
+            </view>
+          </view>
+        </label>
+       </form>
+        <view class="btn">
+          <van-button bind:click="preBtn" round block color="#66CCFF">上一步</van-button>
+          <van-button form-type="submit" round block color="#66CCFF">下一步</van-button>
+        </view>
+      </view>
+
+    </form>
+    <!-- 第三步 -->
+    <form catchsubmit="form_three">
+      <view class="info" wx:if="{{active  == 2}}">
+        <form catchsubmit="form_workExps">
+          <van-field type="textarea" value="{{ personal.workExps[index] }}" name="workExps{{index}}" title-width="6em" wx:for="{{personal.workExps}}" wx:for-index="index"
+          wx:for-item="item" wx:key="index" clearable label="工作经验({{index+1}})" placeholder="工作地点，工作时间，工作内容" />
+        <label  wx:if="{{personal.workExps.length < 5}}">
+          <view class="Add_winning">
+            <view class="round">
+              <button form-type="submit" class="add">+</button>
+            </view>
+          </view>
+        </label>
+        </form>
+        <view class="btn">
+          <van-button bind:click="preBtn" round block color="#66CCFF">上一步</van-button>
+          <van-button form-type="submit" round block color="#66CCFF">下一步</van-button>
+        </view>
+      </view>
+    </form>
+    <!-- 第四步 -->
+    <form catchsubmit="form_four">
+      <view class="info" wx:if="{{active  == 3}}">
+       <picker bindchange="select_options" mode="selector" range="{{optionType}}">
+        <van-field  name="position" value="{{ personal.exp_Posiston }}" clearable label="期望行业" error-message="{{error_message.error_position}}" placeholder="例如：软件开发" />
+       </picker>
+        
+        <picker bindchange='select_Salary' mode="multiSelector" range="{{SalaryType}}">
+          <van-field  name="salary" error-message="{{error_message.error_salary}}" value="{{ personal.exp_Salary }}" clearable label="期望薪资" placeholder="例如：5000-10000" />
+        </picker>
+
+
+        <van-field id='2' name='location' error-message="{{error_message.error_location}}" value="{{ personal.exp_Location }}" clearable label="期望工作地点" bind:focus="ChangeShow"
+          placeholder="请选择地点" />
+        <van-popup show="{{ show }}" round="true" position="bottom" custom-style="height: 40%;" bind:close="onClose">
+          <van-area bind:confirm="changeArea" bind:cancel="cancelArea" area-list="{{ areaList }}" value="110101" />
+        </van-popup>
+        <view class="btn">
+          <van-button bind:click="preBtn" round block color="#66CCFF">上一步</van-button>
+          <van-button form-type="submit" round block color="#66CCFF">保存</van-button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>
+<van-toast id="van-toast" />
+<van-notify id="van-notify" />

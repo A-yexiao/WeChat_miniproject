@@ -1,0 +1,129 @@
+<!-- 轮播图 -->
+<swiper class='banner' autoplay circular="true">
+  <swiper-item class="swiper-item" wx:for="{{swiper}}" wx:key="index">
+    <navigator class="navigator" hover-class="none" url="../join/join">
+      <image class="image" src="{{item}}" style="width:100%;min-height:160px"></image>
+    </navigator>
+  </swiper-item>
+</swiper>
+<view class="line"></view>
+
+<view class="header">
+
+  <!-- <view class="filter-box">
+    <view class="filter {{where['area._id']?'active':''}}" bindtap="show_area">
+      地区
+      <image class="icon" src="../../images/down.png"></image>
+    </view>
+    <view class="filter {{where['label._id']?'active':''}}" bindtap="show_label">
+      标签
+      <image class="icon" src="../../images/down.png"></image>
+    </view>
+    <view class="filter {{where['type._id']?'active':''}}" bindtap="show_type">
+      类型
+      <image class="icon" src="../../images/down.png"></image>
+    </view>
+    <view class="filter {{where['salary._id']?'active':''}}" bindtap="show_salary">
+      工资
+      <image class="icon" src="../../images/down.png"></image>
+    </view>
+  </view>
+  <view class="filter-item-box" style="transform: translate3d(0, {{show=='area'?'0':'-300'}}%, 0);">
+    <view class="filter-item-box-title">
+      地区
+    </view>
+    <view class="section">
+      <view class="filter-item {{where['area._id']?'':'active'}}" bindtap="set_area" data-v="不限">不限</view>
+      <view class="filter-item {{where['area._id']==item._id?'active':''}}" wx:for="{{filter.area_list}}"
+        bindtap="set_area" data-v="{{item._id}}">
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+  <view class="filter-item-box" style="transform: translate3d(0, {{show=='label'?'0':'-300'}}%, 0);">
+    <view class="filter-item-box-title">
+      标签
+    </view>
+    <view class="section">
+      <view class="filter-item {{where['label._id']?'':'active'}}" bindtap="set_label" data-v="不限">不限</view>
+      <view class="filter-item {{where['label._id']==item._id?'active':''}}" wx:for="{{filter.label_list}}"
+        bindtap="set_label" data-v="{{item._id}}">
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+  <view class="filter-item-box" style="transform: translate3d(0,{{show=='type'?'0':'-300'}}%, 0);">
+    <view class="filter-item-box-title">
+      类型
+    </view>
+    <view class="section">
+      <view class="filter-item {{where['type._id']?'':'active'}}" bindtap="set_type" data-v="不限">不限</view>
+      <view class="filter-item {{where['type._id']==item._id?'active':''}}" wx:for="{{filter.type_list}}"
+        bindtap="set_type" data-v="{{item._id}}">
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+  <view class="filter-item-box" style="transform: translate3d(0, {{show=='salary'?'0':'-300'}}%, 0);">
+    <view class="filter-item-box-title">
+      工资
+    </view>
+    <view class="section">
+      <view class="filter-item {{where['salary._id']?'':'active'}}" bindtap="set_salary" data-v="不限">不限</view>
+      <view class="filter-item {{where['salary._id']==item._id?'active':''}}" wx:for="{{filter.salary_list}}"
+        bindtap="set_salary" data-v="{{item._id}}">
+        {{item.name}}
+      </view>
+    </view>
+  </view> -->
+  <!-- c查询 -->
+  <!-- <van-search value="{{ value }}" input-align="center" placeholder="请输入搜索关键词" show-action bind:search="onSearch" bind:cancel="onCancel"/> -->
+  <van-search value="{{ value }}" placeholder="请输入搜索关键词" bind:focus="goSeacher" />
+
+</view>
+<view class="cover" style="display:{{show?'block':'none'}}" bindtap="close"></view>
+<!-- 职位展示 -->
+<view id="r_content">
+  <view class="r_shadow">
+    <view class="r_searchlist positiolist">
+      <view class="job-list" wx:for="{{list}}" wx:key="index">
+        <view class="job-img">
+          <view class="companyLogo">
+            <image wx:if="{{item.company.logo}}" mode="aspectFit" src="{{item.company.logo}}"></image>
+            <image wx:else src="../../images/company-logo.svg"></image>
+          </view>
+        </view>
+        <navigator hover-class="none" url="../position_show/position_show?_id={{item._id}}" class="boxsizing">
+          <view class="jobP-info">
+            <view class="title-info">
+              <view class="job-name fl">
+                {{item.name}}
+              </view>
+              <view class="job-sal fr">
+                <view class="fl">
+                  {{item.salary.name}}
+                </view>
+              </view>
+            </view>
+            <view class="boxitem clearfix">
+              <view class="box1 fl">
+                <span class="ads"> {{item.company.name}}</span>
+              </view>
+
+              <view class="rightbox fr"></view>
+            </view>
+            <view class="job-detail clearfix">
+              <img src="" width="20" height="20" class="MenVipUrl fl" style="display: none;" />
+              <view class="comp-name fl">
+                {{item.area.name}} {{item.type.name}} {{item.label.name}}
+              </view>
+              <view class="time fr">
+                {{item.time}}
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

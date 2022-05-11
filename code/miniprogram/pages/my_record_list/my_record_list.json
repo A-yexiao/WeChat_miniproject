@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-icon": "@vant/weapp/icon/index"
+  },
+  "navigationBarTitleText": "个人简历",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#6699CC"
+}

@@ -1,0 +1,52 @@
+<view id="r_content">
+  <view class="r_shadow" wx:if="{{errorMssage}}">
+    <text>{{errorMssage}}</text>
+  </view>
+  <view class="r_shadow" wx:else>
+    <view class="r_searchlist positiolist">
+      <view class="job-list" wx:for="{{list}}">
+        <view class="job-img">
+          <view class="companyLogo">
+            <image wx:if="{{item.company.logo}}" mode="aspectFit" src="{{item.company.logo}}"></image>
+            <image wx:else src="../../images/company-logo.svg"></image>
+          </view>
+        </view>
+        <navigator hover-class="none" url="../position_show/position_show?_id={{item._id}}" class="boxsizing">
+          <view class="jobP-info">
+            <view class="title-info">
+              <view class="job-name fl">
+                {{item.name}}
+              </view>
+              <view class="job-sal fr">
+                <view class="fl">
+                  {{item.salary.name}}
+                </view>
+              </view>
+            </view>
+            <view class="boxitem clearfix">
+              <view class="box1 fl">
+                <span class="ads"> {{item.company.name}}</span>
+              </view>
+
+              <view class="rightbox fr"></view>
+            </view>
+            <view class="job-detail clearfix">
+              <view class="comp-name fl">
+                {{item.area.name}} {{item.type.name}} {{item.label.name}}
+              </view>
+              <view class="time fr">
+                {{item.time}}
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <view class="info">
+    <view class="tit">
+      提示：投递记录若不完整，表示职位已被删除
+    </view>
+  </view>
+</view>

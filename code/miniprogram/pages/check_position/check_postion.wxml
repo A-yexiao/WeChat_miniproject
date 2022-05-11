@@ -1,0 +1,102 @@
+<!--pages/check_position/check_postion.wxml-->
+
+<view class="weui-form__control-area" style="margin-top:20px">
+  <view class="weui-cells__group weui-cells__group_form">
+    <view class="weui-cells__title">基本信息</view>
+    <view class="weui-cells weui-cells_form">
+      <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+          <label class="weui-label">职位名称</label>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" value="{{one.name}}" 	disabled="{{is_admin}}" bindinput="set_add_name" placeholder="填写职位名称" placeholder-class="weui-input__placeholder" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+          <label class="weui-label">联系电话</label>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" value="{{one.phone}}" disabled="{{is_admin}}"  bindinput="set_add_phone" type="number" placeholder="填写联系电话" placeholder-class="weui-input__placeholder" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_active">
+        <view class="weui-cell__hd">
+          <label class="weui-label">微信号</label>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" value="{{one.weixin}}" disabled="{{is_admin}}"  bindinput="set_add_weixin" placeholder="填写微信号" placeholder-class="weui-input__placeholder" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__group weui-cells__group_form">
+    <view class="weui-cells__title">职位描述</view>
+    <view class="weui-cells weui-cells_form">
+      <view class="weui-cell ">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea" disabled="{{is_admin}}"  value="{{one.desc}}" bindinput="set_add_desc" placeholder="请填写职位描述" rows="3"></textarea>
+          <view class="weui-textarea-counter">
+            <text>{{one.desc.length||0}}</text>/1000
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__group weui-cells__group_form">
+    <view class="weui-cells__title">职位其他信息</view>
+    <view class="weui-cells weui-cells_after-title">
+      <!-- <view bindtap="select_company" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{one.company.name||'选择公司'}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view> -->
+      <view bindtap="{{is_admin?'':'select_area'}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{one.area.name||'选择地区'}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <view bindtap="{{is_admin?'':'chooseLocation'}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{one.location.address||'选择位置'}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <view bindtap="{{is_admin?'':'select_salary'}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{one.salary.name||'选择薪资'}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <view bindtap="{{is_admin?'':'select_type'}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{one.type.name||'选择类型'}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+      <view bindtap="{{is_admin?'':'select_label'}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">{{one.label.name||'选择标签'}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 管理员 -->
+  <view wx:if="{{is_admin&&one._id}}" class="wrap-button">
+    <view id="btnapply" class="btn-share" bindtap="pass_position" data-_id="{{one._id}}" wx:if="{{type==0}}" >
+      审核通过
+    </view>
+    <view id="btnapply" class="btn-now-apply" bindtap="fail_position" wx:if="{{type==0}}" data-_id="{{one._id}}">
+      退回
+    </view>
+    <view id="btnapply" class="btn-share" bindtap="remove" wx:if="{{type==1}}" data-_id="{{one._id}}">
+      删除
+    </view>
+  </view>
+<!-- 公司编辑职位 -->
+  <view wx:elif="{{one._id}}" class="wrap-button">
+    <view id="btnapply" class="btn-share" bindtap="remove" data-_id="{{one._id}}" wx:if="{{one._id}}">
+      删除
+    </view>
+    <view id="btnapply" class="btn-now-apply" bindtap="save" wx:if="{{one._id}}">
+      保存
+    </view>
+  </view>
+  <view wx:else class="wrap-button">
+    <view id="btnapply" style="width:690rpx" class="btn-now-apply" bindtap="add" >
+      新增
+    </view>
+  </view>

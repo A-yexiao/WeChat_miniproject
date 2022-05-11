@@ -1,0 +1,81 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/position_show/position_show",
+    "pages/search/search",
+    "pages/company_show/company_show",
+    "pages/check_area/check_area",
+    "pages/check_label/check_label",
+    "pages/check_type/check_type",
+    "pages/check_salary/check_salary",
+    "pages/check_company/check_company",
+    "pages/check_position/check_postion",
+    "pages/check_user/check_user",
+    "pages/check_swiper/check_swiper",
+    "pages/check_join/check_join",
+    "pages/my/my",
+    "pages/edit_password/edit_password",
+    "pages/my_record_list/my_record_list",
+    "pages/my_DeliveryRecord/my_DeliveryRecord",
+    "pages/my_collection/my_conllection",
+    "pages/edit_personal/edit_personal",
+    "pages/admin/index/index",
+    "pages/admin/admin_company/admin_company",
+    "pages/admin/admin_position/admin_position",
+    "pages/company/company_position_admin/company_position_admin",
+    "pages/company/authentication/authentication",
+    "pages/company/authentication_info/authentication_info",
+    "pages/company/deliveredList/deliveredList",
+    "pages/delivered_info/delivered_info",
+    "pages/notice/notice"
+
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#6699CC",
+    "selectedColor": "#66CCFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-fill.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "职位",
+        "iconPath": "images/company.png",
+        "selectedIconPath": "images/company-fill.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my-fill.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.9",
+      "provider": "wx76a9a06e5b4e693e"
+    },
+    "routePlan": {
+      "version": "1.0.19",
+      "provider": "wx50b5593e81dd937a"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序定位"
+    }
+  }
+}

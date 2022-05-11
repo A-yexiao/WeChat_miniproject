@@ -1,0 +1,33 @@
+.uploader {
+  padding: 10px 16px;
+}
+.uploader .tit{
+  color:#646566;
+  font-size: 14px;
+}
+
+.uploader .upfile_list{
+  display: flex;
+  justify-content: space-between;
+}
+page {
+  position: relative;
+
+  padding-bottom: 120rpx;
+  height: auto;
+}
+
+.remove_pic {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+}
